@@ -1,6 +1,3 @@
-const bobRadius = 8;
-const canvasWidth = 470;
-const canvasHeight = 350;
 
 
 

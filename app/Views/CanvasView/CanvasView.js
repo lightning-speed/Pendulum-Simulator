@@ -22,6 +22,14 @@ class CanvasView extends AppCompactView {
     this.ctx.moveTo(from.x, from.y);
     this.ctx.lineTo(to.x, to.y);
     this.ctx.stroke();
+    this.ctx.beginPath();
+    this.ctx.moveTo(from.x - 1, from.y);
+    this.ctx.lineTo(to.x - 1, to.y);
+    this.ctx.stroke();
+    this.ctx.beginPath();
+    this.ctx.moveTo(from.x + 1, from.y);
+    this.ctx.lineTo(to.x + 1, to.y);
+    this.ctx.stroke();
   }
 
   drawBob(pos) {
