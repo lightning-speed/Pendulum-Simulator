@@ -1,0 +1,54 @@
+body,html{
+    margin:0;
+    height:100%;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+span{
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+#root{
+    height:100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+*{
+    font-family: 'Rubik', sans-serif;
+    font-size:15px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+
+
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: rgb(100,100,100,0.1);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(100,100,100,0.3);
+}
+
+@media screen and (max-width: 767px) {
+  /* Hide scrollbar for mobile devices */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

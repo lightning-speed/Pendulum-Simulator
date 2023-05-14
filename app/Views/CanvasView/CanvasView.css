@@ -1,0 +1,5 @@
+.CanvasView {
+    position: absolute;
+    top: 100px;
+    left: calc(50% - 235px);
+}
