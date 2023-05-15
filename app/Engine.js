@@ -1,3 +1,6 @@
+const IntervalTime = 40;
+const g = 10;
+
 class Engine {
     static init() {
         this.pendulums = [];
@@ -14,7 +17,7 @@ class Engine {
                 canvas.ctx.clearRect(0, 0, canvasWidth, canvasHeight)
                 element.update();
             })
-        }, 50);
+        }, IntervalTime);
     }
     static pause() {
 
