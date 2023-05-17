@@ -7,7 +7,8 @@ class CanvasView extends AppCompactView {
     })
     this.setStyle({
       width: canvasWidth,
-      height: canvasHeight
+      height: canvasHeight,
+      left: "calc(50% - " + canvasWidth / 2 + "px)",
     })
     this.add(this.canvas = new View('canvas').set({
       width: canvasWidth,
@@ -32,18 +33,18 @@ class CanvasView extends AppCompactView {
     this.ctx.stroke();
   }
 
-  drawBob(pos) {
+  drawBob(pos, color) {
     const radius = 8;
-    this.ctx.fillStyle = "white";
+    this.ctx.fillStyle = color;
     this.ctx.beginPath();
     this.ctx.arc(pos.x, pos.y, radius, 0, 2 * Math.PI);
     this.ctx.fill();
   }
-  drawPendulum(bp) {
+  drawPendulum(bp, color) {
     this.drawLine({
       y: 0,
       x: canvasWidth / 2
     }, bp)
-    this.drawBob(bp);
+    this.drawBob(bp, color);
   }
 }
