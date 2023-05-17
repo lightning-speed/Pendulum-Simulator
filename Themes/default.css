@@ -1,0 +1,19 @@
+body,
+html {
+  background-image: linear-gradient(to left, rgb(2, 4, 21), rgb(0, 0, 0));
+  margin: 0;
+  color: white;
+}
+
+button {
+  padding: 7px;
+  background-color: rgb(200, 200, 200, 0.5);
+  outline: none;
+  border-radius: 5px;
+  border: 0px solid blue;
+  margin: 5px
+}
+
+button:hover {
+  background-color: rgb(200, 200, 200, 0.7);
+}

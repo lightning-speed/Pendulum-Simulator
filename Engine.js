@@ -13,11 +13,13 @@ class Engine {
             element.start();
         });
         this.interval = setInterval(() => {
+            canvas.ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+
             this.pendulums.forEach(element => {
                 if (element.state != 'running') return;
-                canvas.ctx.clearRect(0, 0, canvasWidth, canvasHeight)
                 element.update();
             })
+            
         }, IntervalTime);
     }
     static pause() {
@@ -25,6 +27,9 @@ class Engine {
             element.pause();
         });
         clearInterval(this.interval);
+    }
+    static remove(pendulum){
+        this.pendulums.splice(this.pendulums.indexOf(pendulum),1)
     }
     reset() {
 

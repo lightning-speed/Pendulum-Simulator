@@ -1,0 +1,9 @@
+.controlPane {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 250px;
+    background-color: rgb(10, 10, 30);
+    overflow-y: auto;
+}

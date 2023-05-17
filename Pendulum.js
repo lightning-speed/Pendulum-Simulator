@@ -24,22 +24,20 @@ class Pendulum {
             x: canvasWidth / 2
         }
         this.deg = this.initDeg;
-        this.P = canvasHeight - 100;
-        this.B = 0;
-        this.H = canvasHeight - 100;
-        this.v = 0;
-        this.setProperties(45, 15)
+       
+        this.setProperties(45, 15,1)
 
 
 
     }
     update() {
-        this.pe = this.len * Math.abs(Math.cos(Math.round(this.deg) / 180 * Math.PI)) * this.mass * g
+        const rad = this.deg / 180 * Math.PI;
 
-        this.d1 = new Date();
+        this.pe = this.len * Math.abs(Math.cos(Math.round(this.deg) / 180 * Math.PI)) * this.mass * g
+        this.ke = this.te - this.pe;
         this.draw();
-        this.P = Math.sin(this.deg / 180 * Math.PI) * this.H;
-        this.B = Math.cos(this.deg / 180 * Math.PI) * this.H;
+        this.P = Math.sin(rad) * this.H;
+        this.B = Math.cos(rad) * this.H;
         let TimeFactor = IntervalTime / 1000;
 
 
@@ -57,19 +55,26 @@ class Pendulum {
         //Time Factor: velocity = deg/s, s = 1000ms rate = per sec but since we are updating around 100ms
 
 
-        canvas.ctx.font = "15px Arial";
+       /* canvas.ctx.font = "15px Arial";
         canvas.ctx.fillText(Math.round(this.deg), 10, 50);
         canvas.ctx.fillText('KE: ' + decimalPoints(this.te - this.pe, 3), 10, 70);
-        canvas.ctx.fillText('PE: ' + decimalPoints(this.pe, 3), 10, 90);
+        canvas.ctx.fillText('PE: ' + decimalPoints(this.pe, 3), 10, 90);*/
         if (Math.round(this.deg) == this.initDeg) {
             console.log(this.p1);
             this.p1 = 0;
 
         }
         this.p1 += IntervalTime;
+        if(this.afterUpdate!=null)
+        this.afterUpdate();
 
     }
-    setProperties(degree, len) {
+    setProperties(degree, len,mass) {
+        this.P = canvasHeight - 100;
+        this.B = 0;
+        this.H = canvasHeight - 100;
+        console.log(degree,len,mass)
+        this.mass = mass;
         this.ef = 1 - (0.2 * Math.sqrt(degree / 180))
 
         this.len = len;
@@ -103,6 +108,9 @@ class Pendulum {
     }
     pause() {
         this.state = 'paused'
+    }
+    delete(){
+        Engine.remove(this);
     }
 
 }
